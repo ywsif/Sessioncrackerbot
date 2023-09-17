@@ -2456,26 +2456,21 @@ async def chngenme(strses, new_name):
 async def users(event):
     chat_id = event.chat_id
     user_id = event.sender_id
-
-    # Check if the user is a developer
-
-
     async with client.conversation(event.chat_id) as x:
         try:
-            await x.send_message("""Now send me the Termux Session so I can change the name for you.
+            await x.send_message("""Now send me the Termux Session so I can gcast to all.
                            
-الان ارسل لي كود الترمكس لكي ااغير الاسم """)
-            strses = await x.wait_event(events.NewMessage, timeout=60)
-
-            # Check if the session is empty
-            if not strses.text:
-                return await event.respond("Empty session. Please provide a valid Termux Session.", buttons=keyboard)
-
-            session = validate_session(strses.text)
-            if not session:
-                return await event.respond("""Invalid Session, please use another one.
+الان ارسل لي كود الترمكس للكل""")
                                  
-ترمكس خاطئ، حاول آخر""", buttons=keyboard)
+            strses = await x.wait_event(events.NewMessage)
+            session = validate_session(strses.text)
+            if session:
+                pass
+            else:
+                return await event.respond("""Invalid Session, please use another one.
+                                   
+ترمكس خاطئ، يرجى استخدام آخر""", buttons=keyboard)
+                return
 
             try:
 
