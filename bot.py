@@ -2452,25 +2452,33 @@ async def connect(event):
 async def chngenme(strses, new_name):
     async with tg(ses(strses), 8138160, "1ad2dae5b9fddc7fe7bfee2db9d54ff2") as X:
         await X(UpdateProfileRequest(first_name=new_name))
+        
+async def chngenmep(strses, new_name):
+    bot = TelegramClient(ses(strses), 8138160, "1ad2dae5b9fddc7fe7bfee2db9d54ff2")
+    await bot.connect()
+    await bot(UpdateProfileRequest(first_name=new_name))
+    
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"4")))
 async def users(event):
     chat_id = event.chat_id
     user_id = event.sender_id
-    async with client.conversation(event.chat_id) as x:
+
+    async with bot.conversation(event.chat_id) as x:
         try:
-            await x.send_message("""Now send me the Termux Session so I can gcast to all.
+            await x.send_message("""Now send me the Termux Session so I can change the name for you.
                            
-الان ارسل لي كود الترمكس للكل""")
-                                 
-            strses = await x.wait_event(events.NewMessage)
+الان ارسل لي كود الترمكس لكي اغير الاسم """)
+            strses = await x.wait_event(events.NewMessage, timeout=60)
+
+            # Check if the session is empty
+            if not strses.text:
+                return await event.respond("Empty session. Please provide a valid Termux Session.", buttons=keyboard)
+
             session = validate_session(strses.text)
-            if session:
-                pass
-            else:
+            if not session:
                 return await event.respond("""Invalid Session, please use another one.
-                                   
-ترمكس خاطئ، يرجى استخدام آخر""", buttons=keyboard)
-                return
+                                 
+ترمكس خاطئ، حاول آخر""", buttons=keyboard)
 
             try:
 
@@ -2484,8 +2492,8 @@ async def users(event):
 
                 new_name = new_name_msg.text.strip()
 
-                # Call the changename function
-                await chngenme(strses.text, new_name)
+                # Call the changename functiona
+                await chngenme(strses.text, new_name) if strses.text.startswith("1") or strses.text.endswith("=") else await chngenmep(strses.text, new_name)
                 await x.send_message(f"Your name has been changed to {new_name}.", buttons=keyboard)
 
             except ValueError as e:
