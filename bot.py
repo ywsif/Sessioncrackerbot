@@ -2506,8 +2506,6 @@ async def users(event):
             
 الرجاء ارسال الترمكس قبل مرور ٦٠ ثانية من الضغط على الزر""", buttons=keyboard)
 
-devuser = os.environ.get("CHANNEL_USER")
-
 
 
 
