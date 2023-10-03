@@ -1,12 +1,12 @@
 {
-    "name": "PrivaPactbots",
+    "name": "Tweetza bot",
     "description": "ميزات بوت لا مثيل لها كنقل نقاط من حساب بواسطة ترمكس فقط",
     "logo": "",
     "keywords": [
 
     ],
     "website": "",
-    "success_url": "https://telegram.me/Privapact",
+    "success_url": "https://telegram.me/ccrrrryy",
     "env": {
         "BOT_TOKEN": {
             "description": "توكن البوت من @botfather",
