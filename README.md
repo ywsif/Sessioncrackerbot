@@ -1,7 +1,7 @@
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Generalghost890/Sessioncrackerbot/)
 
-جميع الحقوق ل tweetza و @QuadriIIion 
+جميع الحقوق ل tweetza و t.me/QuadriIIion 
 يحق للاستخدام الكامل وتغيير الحقوق والتغديل واضافة وحذف
  Extended MIT License with Additional Clauses
 
