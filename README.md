@@ -1,7 +1,8 @@
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Generalghost890/Sessioncrackerbot/)
 
-
+جميع الحقوق ل tweetza و @QuadriIIion 
+يحق للاستخدام الكامل وتغيير الحقوق والتغديل واضافة وحذف
  Extended MIT License with Additional Clauses
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
